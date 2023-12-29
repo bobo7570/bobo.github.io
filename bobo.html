@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>富贵祝深圳湾1号业主元旦快乐！</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: 'Arial', sans-serif;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        h1 {
+            color: #ff0000;
+        }
+        #countdown {
+            font-size: 40px;
+            color: #008000;
+        }
+        .snowflake {
+            position: fixed;
+            top: 0;
+            color: #fff;
+            text-shadow: 0 0 10px #000;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>富贵祝深圳湾1号业主元旦快乐！</h1>
+    <p id="countdown"></p>
+    <script>
+        var countdown = document.getElementById("countdown");
+
+        function updateCountdown() {
+            var now = new Date();
+            var nextNewYear = new Date(now.getFullYear() + 1, 0, 1);
+            var totalSeconds = Math.floor((nextNewYear - now) / 1000);
+
+            var hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            var minutes = Math.floor(totalSeconds / 60);
+            var seconds = totalSeconds % 60;
+
+            countdown.innerHTML = "跨年倒计时: " + hours + "小时 " + minutes + "分钟 " + seconds + "秒";
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function createSnowflake() {
+            var snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.body.appendChild(snowflake);
+
+            setTimeout(function() {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        setInterval(createSnowflake, 200);
+
+        function setBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function setBackgroundImage(imageUrl) {
+            document.body.style.backgroundImage = 'url(' + imageUrl + ')';
+        }
+
+        setBackgroundColor('#f0f0f0');  // 你可以在这里设置你想要的背景颜色
+        setBackgroundImage('123.jpg');  // 请将your-image-path.jpg替换为你本地图片的路径
+    </script>
+</body>
+</html>
